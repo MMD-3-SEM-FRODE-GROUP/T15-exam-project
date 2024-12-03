@@ -51,7 +51,7 @@ const AboutPage = () => {
   ];
 
   return (
-    <div className="relative bg-black text-gray-300">
+    <div className="relative text-gray-300">
       <Image
         src={AboutHeroImage}
         alt="Hero background for about-page, by Gabriel Benois"
@@ -60,10 +60,9 @@ const AboutPage = () => {
         priority={true}
         className="opacity-50"
       />
-      {/* <Nav /> */}
       <div className="min-h-screen text-gray-300 py-12 px-4 relative z-10"> 
         <div className="max-w-5xl mx-auto rounded-xl shadow-2xl overflow-hidden mt-60">
-          <div className="text-center p-8 bg-black">
+          <div className="text-center p-8 bg-black/80">
             <h1 className="text-5xl font-black text-white mb-4">
               FOO FEST
             </h1>
@@ -71,7 +70,7 @@ const AboutPage = () => {
               Where music transcends boundaries
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-6 p-8 bg-black">
+          <div className="grid md:grid-cols-3 gap-6 p-8 bg-black/80">
             <div className="text-center">
               <Radio className="mx-auto h-16 w-16 text-white" />
               <h3 className="mt-4 text-xl font-bold text-white">Sound Waves</h3>
@@ -105,7 +104,7 @@ const AboutPage = () => {
         </div>
 
         <div className="max-w-5xl mx-auto mt-12 bg-black/80 rounded-xl p-8">
-          <h2 className="text-3xl font-bold mb-6 text-white text-center">Frequently Asked Questions</h2>
+          <h2 className="text-3xl font-bold mb-6 text-white text-center">FAQ</h2>
           {faqItems.map((item, index) => (
             <FAQItem key={index} question={item.question} answer={item.answer} />
           ))}
