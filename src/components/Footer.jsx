@@ -14,23 +14,23 @@ const Footer = () => {
 
         <ul className="flex flex-wrap gap-4 justify-center md:justify-start">
           <li>
-            <Link href={"/#"} className="text-gray-400 hover:text-white hover:underline underline-offset-2 transition-all duration-200 ease-in-out">
-              About Us
+            <Link href={"/program"} className="text-gray-400 hover:text-white hover:underline underline-offset-2 transition-all duration-200 ease-in-out">
+              Program
             </Link>
           </li>
           <li>
-            <Link href={"/#"} className="text-gray-400 hover:text-white hover:underline underline-offset-2 transition-all duration-200 ease-in-out">
-              Services
+            <Link href={"/events"} className="text-gray-400 hover:text-white hover:underline underline-offset-2 transition-all duration-200 ease-in-out">
+              Events
             </Link>
           </li>
           <li>
-            <Link href={"/#"} className="text-gray-400 hover:text-white hover:underline underline-offset-2 transition-all duration-200 ease-in-out">
-              Contact
+            <Link href={"/tickets"} className="text-gray-400 hover:text-white hover:underline underline-offset-2 transition-all duration-200 ease-in-out">
+              Tickets
             </Link>
           </li>
           <li>
-            <Link href={"/#"} className="text-gray-400 hover:text-white hover:underline underline-offset-2 transition-all duration-200 ease-in-out">
-              Privacy Policy
+            <Link href={"/about"} className="text-gray-400 hover:text-white hover:underline underline-offset-2 transition-all duration-200 ease-in-out">
+              About
             </Link>
           </li>
         </ul>

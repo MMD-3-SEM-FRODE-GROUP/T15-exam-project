@@ -23,7 +23,7 @@ const Navigation = () => {
 
 
       <a
-        href="#"
+        href="/tickets"
         className="relative group text-2xl font-light text-white"
       >
         Tickets
