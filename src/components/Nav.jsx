@@ -49,38 +49,38 @@ const Navigation = () => {
             <ul className="space-y-3 text-center text-3xl">
               <li>
                 <a
-                  href="#"
+                  href="/program"
                 className="relative group text-white"
                 >
-                  Home
+                  Program
                    <span className="absolute left-0 bottom-0 w-0 h-1 bg-white transition-all duration-300 group-hover:w-full"></span>
                 </a>
               </li>
               <li>
+                <a
+                  href="/events"
+               className="relative group text-white"
+                >
+                  Events
+                   <span className="absolute left-0 bottom-0 w-0 h-1 bg-white transition-all duration-300 group-hover:w-full"></span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/tickets"
+                  className="relative group text-white"
+                >
+                  Tickets
+                 <span className="absolute left-0 bottom-0 w-0 h-1 bg-white transition-all duration-300 group-hover:w-full"></span>
+                </a>
+              </li>
+               <li>
                 <a
                   href="/about"
                  className="relative group text-white"
                 >
                   About
                    <span className="absolute left-0 bottom-0 w-0 h-1 bg-white transition-all duration-300 group-hover:w-full"></span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-               className="relative group text-white"
-                >
-                  Services
-                   <span className="absolute left-0 bottom-0 w-0 h-1 bg-white transition-all duration-300 group-hover:w-full"></span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="relative group text-white"
-                >
-                  Contact
-                 <span className="absolute left-0 bottom-0 w-0 h-1 bg-white transition-all duration-300 group-hover:w-full"></span>
                 </a>
               </li>
             </ul>
