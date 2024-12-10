@@ -10,21 +10,22 @@ export default function Page() {
 
   //   mx-[20px] lg:mx-[64px] py-[64px] lg:py-[112px]
   return (
-    <div
-      // Wrapper div, der tager hele skærmen og viser et baggrundsbillede
-      className="w-full h-screen py-[64px] lg:py-[112px] bg-cover bg-center"
-      style={{
-        backgroundImage: "url('/images/jodie-walton-unsplash.jpg')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
-      <div className="flex flex-col justify-center items-center">
-        <h1 className="font-black text-white text-center">Tickets & overview</h1>
+    <div className="py-[64px] lg:py-[112px]">
+      <div
+        // Wrapper div, der tager hele skærmen og viser et baggrundsbillede
+        className="w-full h-[205px] bg-cover bg-center flex justify-center items-center"
+        style={{
+          backgroundImage: "url('/images/jodie-walton-unsplash.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        <div className="flex flex-col justify-center items-center">
+          <h1 className="font-black text-white text-center">Tickets</h1>
 
-        {/* Knapper til at skifte mellem booking og schedule */}
-        <div className="space-x-4">
+          {/* Knapper til at skifte mellem booking og schedule */}
+          {/* <div className="space-x-4">
           <Button
             variant={activeView === "booking" ? "default" : ""} // Marker aktiv visning
             onClick={() => setActiveView("booking")} // Opdaterer aktiv visning til schedule
@@ -38,10 +39,15 @@ export default function Page() {
           >
             View Schedule
           </Button>
+        </div> */}
         </div>
       </div>
+
       {/* Sektion til dynamisk rendering af enten BookingFlow eller ScheduleView */}
-      <section className="p-6">{activeView === "booking" ? <BookingFlow /> : <ScheduleView />}</section>
+      {/* <section className="p-6">{activeView === "booking" ? <BookingFlow /> : <ScheduleView />}</section> */}
+      <section className="p-6">
+        <BookingFlow />
+      </section>
     </div>
   );
 }

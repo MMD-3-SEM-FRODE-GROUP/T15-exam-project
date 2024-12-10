@@ -7,6 +7,7 @@ import { Label } from "../ui/Label"; // UI-komponent til tekstlabels
 import { Input } from "../ui/Input"; // UI-komponent til inputfelter
 import { Button } from "../ui/Button"; // UI-komponent til knapper
 import { Music } from "lucide-react"; // Ikonpakke
+import { IoTicketOutline } from "react-icons/io5";
 
 // Komponent til valg af billet
 export default function TicketSelection({ bookingData, setBookingData, onNext }) {
@@ -24,7 +25,7 @@ export default function TicketSelection({ bookingData, setBookingData, onNext })
       {/* Header-sektionen med titel og ikon */}
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
-          <Music className="h-6 w-6" /> {/* Ikon for musik */}
+          <IoTicketOutline className="h-6 w-6" />
           Select Your Tickets {/* Titel for sektionen */}
         </CardTitle>
       </CardHeader>
@@ -35,18 +36,44 @@ export default function TicketSelection({ bookingData, setBookingData, onNext })
         <RadioGroup
           value={bookingData.ticketType} // Forvalgt værdi baseret på bookingData
           onValueChange={handleTicketTypeChange} // Håndterer ændringer i valgt værdi
-          className="mb-4"
+          className="mb-4 flex gap-4"
         >
           {/* Regular Ticket valg */}
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem value="regular" id="regular" />
-            <Label htmlFor="regular">Regular Ticket (799,-)</Label>
+          <div
+            className="flex items-center space-x-2 w-[116.75px] h-[217.875px] bg-cover bg-center"
+            style={{
+              backgroundImage: "url('/images/ticket.png')",
+
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+            }}
+          >
+            <div className="flex items-center space-x-2">
+              <RadioGroupItem value="regular" id="regular" />
+              <Label htmlFor="regular" className="text-text_color">
+                Regular Ticket <span>(799,-)</span>
+              </Label>
+            </div>
           </div>
 
           {/* VIP Ticket valg */}
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem value="vip" id="vip" />
-            <Label htmlFor="vip">VIP Ticket (1299,-)</Label>
+          <div
+            className="flex items-center space-x-2 w-[116.75px] h-[217.875px] bg-cover bg-center"
+            style={{
+              backgroundImage: "url('/images/ticket.png')",
+
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+            }}
+          >
+            <div className="flex items-center space-x-2">
+              <RadioGroupItem value="vip" id="vip" />
+              <Label htmlFor="vip" className="text-text_color">
+                VIP Ticket <span>(1299,-)</span>
+              </Label>
+            </div>
           </div>
         </RadioGroup>
 
