@@ -111,10 +111,21 @@ const Page = () => {
     // Hvad mangler vi ellers?
     // Kan vi have noget loading agtigt som på sebs praktik side? sådan så det er mere spændende at komme ind på siden?
 
-    <div className="mx-[20px] py-[64px] lg:mx-[64px] lg:py-[112px]">
-      <GSAPTextReveal />
+    <div className="">
+      <div
+        style={{
+          backgroundImage: "url('/images/jodie-walton-unsplash.jpg')",
+          backgroundRepeat: "no-repeat",
+          backgroundColor: "black",
+        }}
+        className="w-full h-[250px] py-[64px] lg:py-[112px] bg-center bg-fill bg-cover bg-black bg-opacity-50"
+      >
+        <h1 className="font-black text-white text-center">Lineup</h1>
+      </div>
+
+      {/* <GSAPTextReveal /> */}
       {/* Filter Controls */}
-      <section className="flex flex-col lg:flex-row gap-[64px]">
+      <section className="flex flex-col lg:flex-row gap-[64px] mx-[20px] lg:mx-[64px]">
         <article className="lg:w-1/4">
           <h5 className="font-bold mb-[24px]">Filters</h5>
           <hr />
