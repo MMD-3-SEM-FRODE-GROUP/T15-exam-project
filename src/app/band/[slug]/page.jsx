@@ -1,5 +1,6 @@
 import Image from "next/image";
 import placeholderLogo from "@/images/placeholder-image.png";
+import AboutSection from "@/app/band/AboutSection";
 
 // Dynamically import local logos
 const importLogo = (logoName) => {
@@ -12,7 +13,7 @@ const importLogo = (logoName) => {
 
 // singleview for a band
 const Page = async ({ params }) => {
-  const slug = params.slug; // henter slug fra URL'en
+  const slug = await params.slug; // henter slug fra URL'en
 
   // fetch band data
   const bandResponse = await fetch(`http://localhost:8080/bands/${slug}`);
@@ -43,8 +44,9 @@ const Page = async ({ params }) => {
   const bandLogo = importLogo(band.logo);
 
   return (
-    <div className="py-[64px] lg:py-[112px]">
+    <div>
       <div className="relative">
+        {/* Adjust Image Container */}
         <Image
           src={bandLogo}
           alt={`${band.name} logo`}
@@ -58,10 +60,7 @@ const Page = async ({ params }) => {
       </div>
       <section className="mx-[20px] lg:mx-[64px] py-[48px] lg:py-[80px] lg:flex gap-[80px] justify-between">
         <article className="lg:w-3/5 grid gap-4">
-          <div>
-            <h2 className="">About the Band</h2>
-            <p className="single-view-schedule-p">{band.bio}</p>
-          </div>
+          <AboutSection bio={band.bio} />
 
           <div>
             <h2 className="">Members</h2>
@@ -69,9 +68,7 @@ const Page = async ({ params }) => {
               <div>
                 {band.members.map((bandmembers, index) => (
                   <ul key={index}>
-                    <li className="single-view-schedule-p">
-                      {bandmembers}
-                    </li>
+                    <li className="text-step_p">{bandmembers}</li>
                   </ul>
                 ))}
               </div>
@@ -80,8 +77,8 @@ const Page = async ({ params }) => {
             )}
           </div>
           <div>
-            <h5 className="font-bold">Genre</h5>
-            <p className="text-lg font-light single-view-schedule-p">{band.genre}</p>
+            <h2 className="font-bold text-step_h5">Genre</h2>
+            <p className="text-lg font-light text-step_p">{band.genre}</p>
           </div>
         </article>
         <div className="lg:w-2/5">
@@ -90,9 +87,12 @@ const Page = async ({ params }) => {
             {bandSchedules.length > 0 ? (
               <div>
                 {bandSchedules.map((schedule, index) => (
-                  <p key={index} className="p-4 border rounded shadow-sm single-view-schedule-p">
-                    <strong>{schedule.day.toUpperCase()}</strong>: {schedule.stage} (
-                    {schedule.start} - {schedule.end})
+                  <p
+                    key={index}
+                    className="p-4 border rounded shadow-sm single-view-schedule-p"
+                  >
+                    <strong>{schedule.day.toUpperCase()}</strong>: {schedule.stage} ({schedule.start} -{" "}
+                    {schedule.end})
                   </p>
                 ))}
               </div>
