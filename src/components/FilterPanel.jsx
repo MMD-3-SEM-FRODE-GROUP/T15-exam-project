@@ -1,14 +1,16 @@
-import { IoIosClose } from "react-icons/io";
+import { IoCloseOutline } from "react-icons/io5";
 import { Button } from "./ui/button";
 
 const FilterPanel = ({ filters, setFilters, schedule, daysMap, bands, closeFilter }) => {
+  // Framer Motion animation-variabler
+
   return (
-    <div className="px-[20px] py-[28px] fixed bg-white_color text-black_color top-0 left-0 h-full w-full md:w-[300px] bg-primary z-50 transition-transform duration-300 overflow-y-auto">
+    <div className="">
       <div className="flex flex-col justify-between items-center mb-[24px]">
-        <button onClick={closeFilter} className="self-end text-lg hover:text-red_color">
-          <IoIosClose size={50} />
+        <button onClick={closeFilter} className="self-end text-lg hover:text-red_color transition-base">
+          <IoCloseOutline className="w-12 h-12 " />
         </button>
-        <h4 className="self-start">Filters</h4>
+        <h4 className="self-start ">Filters</h4>
       </div>
       <hr />
 
@@ -34,7 +36,7 @@ const FilterPanel = ({ filters, setFilters, schedule, daysMap, bands, closeFilte
                 }}
                 className="form-checkbox text-black_color border-grey_color rounded"
               />
-              <span>{fullDayName}</span>
+              <span className="text-step_text_regular">{fullDayName}</span>
             </label>
           ))}
         </form>
@@ -64,7 +66,7 @@ const FilterPanel = ({ filters, setFilters, schedule, daysMap, bands, closeFilte
                 }}
                 className="form-checkbox text-black_color border-grey_color rounded"
               />
-              <span>{stage}</span>
+              <span className="text-step_text_regular">{stage}</span>
             </label>
           ))}
         </form>
@@ -94,7 +96,7 @@ const FilterPanel = ({ filters, setFilters, schedule, daysMap, bands, closeFilte
                 }}
                 className="form-checkbox text-black_color border-grey_color rounded"
               />
-              <span>{genre}</span>
+              <span className="text-step_text_regular">{genre}</span>
             </label>
           ))}
         </form>

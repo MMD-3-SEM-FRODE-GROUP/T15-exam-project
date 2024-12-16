@@ -1,4 +1,5 @@
 "use client";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { IoFilter } from "react-icons/io5";
 
@@ -14,6 +15,12 @@ import HeaderBillede from "@/components/HeaderBillede";
 import HeaderText from "@/components/HeaderText";
 
 const Page = () => {
+  const panelSlide = {
+    initial: { x: "-100%" },
+    enter: { x: "0", transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] } },
+    exit: { x: "-100%", transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] } },
+  };
+
   const [bands, setBands] = useState([]); // State for bands fetched fra API
 
   // hvorfor er der {} her og ikke []?
@@ -45,7 +52,7 @@ const Page = () => {
     const fetchData = async () => {
       try {
         const [bandsData, scheduleData] = await Promise.all([api.getBands(), api.getSchedule()]);
-
+        await new Promise((resolve) => setTimeout(resolve, 3000));
         // kombinerer bandsData og scheduleData
         const updatedBands = bandsData.map((band) => {
           // finder scheduleData for hvert band
@@ -124,7 +131,19 @@ const Page = () => {
               </Button>
 
               {/* FilterPanel Component */}
-              {isFiltersOpen && <FilterPanel filters={filters} setFilters={setFilters} schedule={schedule} daysMap={daysMap} bands={bands} closeFilter={() => setIsFiltersOpen(false)} />}
+              <AnimatePresence mode="wait">
+                {isFiltersOpen && (
+                  <motion.div
+                    variants={panelSlide} // Use the animation variants
+                    initial="initial"
+                    animate="enter"
+                    exit="exit"
+                    className="fixed bg-white top-0 left-0 w-full h-full md:w-[300px] z-50 overflow-y-auto px-[20px] py-[28px]"
+                  >
+                    <FilterPanel filters={filters} setFilters={setFilters} schedule={schedule} daysMap={daysMap} bands={bands} closeFilter={() => setIsFiltersOpen(false)} />
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </section>
 
             <section>
@@ -134,6 +153,7 @@ const Page = () => {
               </Button>
             </section>
           </div>
+
           {/* Main Band Grid */}
           <section className={`transition-transform duration-300 ${isFiltersOpen ? "opacity-50" : "opacity-100"} grid grid-cols-2 lg:grid-cols-4 gap-4`}>
             {filteredBands.slice(0, visibleCount).map((band) => (
